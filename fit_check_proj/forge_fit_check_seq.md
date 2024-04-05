@@ -1,4 +1,4 @@
-:::mermaid
+```mermaid
 sequenceDiagram
     title Fit Check Integration in Forge
     PartManager->>+TaskPlanningService: TaskPlanningRequest
@@ -26,3 +26,4 @@ sequenceDiagram
     WeldPlanningPipeline(Plugin)->>WeldPlanningPipeline(Plugin): saveTaskPlan()
     WeldPlanningPipeline(Plugin)-->>-TaskPlanningService: Task Plan
     TaskPlanningService-->-PartManager: Task Plan
+```
