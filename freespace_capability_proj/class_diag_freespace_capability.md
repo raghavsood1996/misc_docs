@@ -1,4 +1,10 @@
 ```mermaid
+---
+  config:
+    class:
+      hideEmptyMembersBox: true
+---
+
 classDiagram
     class FreeSpaceMotionPlanner {
         <<interface>>
@@ -15,11 +21,11 @@ classDiagram
         +FreeSpaceMotionPlanner createFreeSpaceMotionPlanner(planner_name, collision_interface, config)
     }
 
-    class CollisionInterface {
+    class CollisionInterface:::implemented {
         <<interface>>
     }
 
-    class RobotModel {
+    class RobotModel:::implemented {
         <<interface>>
     }
 
@@ -35,7 +41,7 @@ classDiagram
         +void run()
     }
 
-    class CapabilityBase {
+    class CapabilityBase:::implemented {
         
         +void CapabilityBase(string name, string description, bool cacheable, double timeout)
         +void addInputPort(PortDefinition port)
@@ -47,7 +53,7 @@ classDiagram
         
     }
 
-    class OMPLInterface {
+    class OMPLInterface:::implemented {
         + void solve(GoalConstraint goal, RobotJointState start, vector~RobotJointState~ path)
     }
 
@@ -65,6 +71,8 @@ classDiagram
     FreeSpacePlanningCapability --> OccupancyRecordManager : uses
 
 
-    classDef implemented fill:#9FE2BF,stroke:#333,stroke-width:4px
-
+    style CapabilityBase fill:#9FE2BF,stroke:#333,stroke-width:4px;
+    style OMPLInterface fill:#9FE2BF,stroke:#333,stroke-width:4px;
+    style RobotModel fill:#9FE2BF,stroke:#333,stroke-width:4px;
+    style CollisionInterface fill:#9FE2BF,stroke:#333,stroke-width:4px;
 ```
